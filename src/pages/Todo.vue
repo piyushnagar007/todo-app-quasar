@@ -81,11 +81,13 @@ export default {
       });
     },
     createTask(){
-      this.tasks.push({
+      if(this.newTask !== ''){
+        this.tasks.push({
         title: this.newTask,
         done: false
       })
       this.newTask = ''
+      }    
     }
   }
 };

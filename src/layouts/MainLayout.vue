@@ -12,7 +12,7 @@
         />
       </q-toolbar>
       <div class="q-px-lg q-pt-xl q-mb-md">
-        <div class="text-h3">Todo</div>
+        <div class="text-h3">{{ $t('heading') }}</div>
         <div class="text-subtitle1">{{ todaysDate }}</div>
       </div>
       <q-img src="../assets/mountains.png" class="header-image absolute-top"></q-img>
@@ -35,7 +35,31 @@
               </q-item-section>
 
               <q-item-section>
-                Todo
+                {{ $t('nav.todo') }}
+              </q-item-section>
+            </q-item>
+
+            <q-item to="/lang"
+            exact
+            clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="style" />
+              </q-item-section>
+
+              <q-item-section>
+                {{ $t('nav.lang') }}
+              </q-item-section>
+            </q-item>
+
+            <q-item to="/news"
+            exact
+            clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="today" />
+              </q-item-section>
+
+              <q-item-section>
+                {{ $t('nav.news') }}
               </q-item-section>
             </q-item>
 
@@ -47,7 +71,7 @@
               </q-item-section>
 
               <q-item-section>
-                Help
+                {{ $t('nav.help') }}
               </q-item-section>
             </q-item>
           </q-list>
@@ -73,63 +97,15 @@
 </template>
 
 <script>
-import EssentialLink from 'components/EssentialLink.vue'
 import { date } from 'quasar'
 
-const linksData = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-]
+
 
 export default {
   name: 'MainLayout',
-  components: {
-    EssentialLink
-  },
   data () {
     return {
-      leftDrawerOpen: false,
-      essentialLinks: linksData
+      leftDrawerOpen: false
     }
   },
   computed:{
